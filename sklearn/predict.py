@@ -35,11 +35,13 @@ df = pd.read_csv("data/Housing.csv")
 X = df[NUMERIC_COLUMNS + BOOLEAN_COLUMNS + CATEGORICAL_COLUMNS]
 y = df[TARGET_COLUMN]
 
-preprocessor = ColumnTransformer( transformers=[
-    ("num",  StandardScaler(), NUMERIC_COLUMNS),
-    ("cat", OneHotEncoder(handle_unknown="ignore"), CATEGORICAL_COLUMNS),
-    ("bool", OneHotEncoder(drop="if_binary"), BOOLEAN_COLUMNS)
-])
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", StandardScaler(), NUMERIC_COLUMNS),
+        ("bool", OneHotEncoder(drop="if_binary"), BOOLEAN_COLUMNS),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), CATEGORICAL_COLUMNS)
+    ]
+)
 
 model = Pipeline(steps=[
     ("preprocessor", preprocessor),
