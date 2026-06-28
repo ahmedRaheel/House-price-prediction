@@ -51,6 +51,7 @@ def predict(
         prediction = model(X)
 
     return prediction.item()
+    
 
 if __name__ == "__main__":
     house_price = predict (

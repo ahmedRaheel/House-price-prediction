@@ -53,7 +53,7 @@ def train():
         for features, targets in loader:
             predictions = model(features)
 
-            loss = lose_fn(features, predictions)
+            loss = lose_fn(predictions, targets)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
