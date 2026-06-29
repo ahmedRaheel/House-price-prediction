@@ -2,28 +2,7 @@ import joblib
 import pandas as pd
 import tensorflow as tf
 
-NUMERIC_COLUMNS = [
-    "area",
-    "bedrooms",
-    "bathrooms",
-    "stories",
-    "parking"
-]
 
-BOOLEAN_COLUMNS = [
-    "mainroad",
-    "guestroom",
-    "basement",
-    "hotwaterheating",
-    "airconditioning",
-    "prefarea"
-]
-
-CATEGORICAL_COLUMNS = [
-    "furnishingstatus"
-]
-
-TARGET_COLUMN = "price"
 model = tf.keras.models.load_model("models/houseprice_model.keras")
 preprocessor = joblib.load("models/houseprice_preprocessor.pkl")
 
